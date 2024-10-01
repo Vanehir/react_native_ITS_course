@@ -1,10 +1,10 @@
-import React from "react";
-import { TouchableOpacity, Text, ViewStyle, TextStyle } from "react-native";
-import { styles } from "@/components/atoms/button/button.styles";
+import React from 'react';
+import { TouchableOpacity, Text, ViewStyle, TextStyle } from 'react-native';
+import { styles } from '@/components/atoms/button/button.styles';
 
 interface ButtonProps {
   title: string;
-  disabled: boolean;
+  disabled?: boolean;
   style?: ViewStyle;
   titleStyle?: TextStyle;
   activeOpacity?: number;
@@ -13,7 +13,7 @@ interface ButtonProps {
 
 export const ButtonComponent = ({
   title,
-  disabled,
+  disabled = false,
   style,
   titleStyle,
   activeOpacity = 0.7,
@@ -24,8 +24,7 @@ export const ButtonComponent = ({
       activeOpacity={activeOpacity}
       style={[styles.container, style]}
       disabled={disabled}
-      onPress={onPress}
-    >
+      onPress={onPress}>
       <Text style={titleStyle}>{title}</Text>
     </TouchableOpacity>
   );
